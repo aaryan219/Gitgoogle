@@ -1,0 +1,7 @@
+{
+    "/**":{
+        "target":"https://api.github.com/users/",
+        "secure":true,
+        "changeOrigin":true
+    }
+}

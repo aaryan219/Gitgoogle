@@ -1,0 +1,147 @@
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">GIT GOOGLE</a>
+      <form (ngSubmit)="senduser()">
+        <div class="search"> <input class="form-control me-2" type="text"placeholder="Enter GitHub Username"name="username"
+          [(ngModel)]="Username" type="search" aria-label="Search">
+          <button
+           class="btn btn-outline-success" type="submit"  (click)="resetCurrentPage()" >Search</button></div>
+       
+        <div class="navbar"  >
+        </div>
+      </form>
+    </div>
+  </nav>
+  <div class="container">
+    <div *ngIf="searchResults" class="container">
+    <div class="profile-card" >
+      <img src="{{searchResults?.avatar_url}}" alt="Profile Image" width="300" height="300"  class="profile-img">
+      <div class="side">
+        <h1 class="profile-username">{{searchResults?.name}}</h1>
+      <p class="profile-bio">{{searchResults?.bio}}</p>
+      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+      <i class="fas fa-map-marker-alt" ></i> {{searchResults?.location}}
+      <br><i class="fas fa-envelope"></i>Twitter :{{searchResults?.twitter_username}}
+      </div>       
+      </div>
+      <div class="detail-item" >
+        <i class="fasfa-envelope" href="#"></i> {{searchResults?.url}}
+      </div>
+      <div class="col-md-6" >
+        <div class="card"   *ngFor="let item of searchResult " style="width: 45%;">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name}}</h5>
+            <p class="card-text">{{ item.description}}.</p>
+            <a href="#" class="btn btn-primary">{{ item.language}}</a>
+          </div>
+        </div>
+        
+        </div>
+      <div class="perpage">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+      </div>
+    </div>
+    
+  </div>
+  <!-- <div class="repo">{{searchResult?.name}}</div> -->
+  
+<style>
+  .profile-img{
+    width: 200;
+    height: 200;
+    border-radius: 50%;
+  }
+  .search{
+    display: flex;
+  }
+  .profile-card{
+    display: flex;
+  }
+  /* .col-md-6{
+    display: flex;
+  } */
+  .perpage{
+    align-items: center;
+    display: flex;
+  justify-content: center;
+  
+  }
+  .profile-bio{
+    align-items: right;
+  }
+  .card {
+  /* Basic card styles */
+  border: 1px solid #ddd; /* Border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+  background-color: #fff; /* Background color */
+   /* Padding */
+margin-bottom: 4vw; /* Margin between cards */
+  padding: 20bh;
+  
+}
+
+
+.card:hover {
+  /* Hover effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.profile-details{
+  display: flex;
+}
+
+.col-md-6{
+  display: flex;
+  margin-top: 100px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 5px;
+  justify-content: space-around;
+  
+  
+}
+
+.card-body{
+  height: 200;
+  width: 280;
+  padding: 20;
+  background-color:#faf0e6;
+}
+.cen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust height as needed */
+}
+.cooltext {
+  font-family: Arial, sans-serif;
+  font-size: 150px;
+  color:#000435; /* Adjust text color */
+  animation: coolAnimation 2s infinite alternate; /* Adjust animation duration */
+  position: absolute;
+  
+}
+@keyframes coolAnimation {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+  
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+.container{
+  width: 100%;
+  background-color: #ece0d1;
+  
+}
+</Style>
+<div class="cen">
+ <h1 class="cooltext">GIT GOOGLE</h1 >
+</div>
+
+
+
+
