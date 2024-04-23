@@ -39,8 +39,8 @@
         </div>
       <div class="perpage">
         <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-        <span>Page {{ currentPage }} of {{ totalPages }}</span>
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        <span>Page {{ currentPage }} of {{ totalPage() }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPage()">Next</button>
       </div>
     </div>
     
@@ -49,9 +49,10 @@
   
 <style>
   .profile-img{
-    width: 200;
-    height: 200;
+    width: 180;
+    height: 150;
     border-radius: 50%;
+    padding: 20px;
   }
   .search{
     display: flex;
@@ -82,7 +83,9 @@ margin-bottom: 4vw; /* Margin between cards */
   padding: 20bh;
   
 }
-
+.side{
+  padding-top: 45px;
+}
 
 .card:hover {
   /* Hover effect */

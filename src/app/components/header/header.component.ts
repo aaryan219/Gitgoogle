@@ -58,6 +58,19 @@ export class HeaderComponent implements OnInit {
       this.senduser();
     }
   }
+  totalPage(){
+    if(this.totalPages<10){
+      return 1;
+    }
+    if(Math.floor(this.totalPages%10)<this.totalPages/10){
+      return this.totalPages%10+1;
+      
+    }
+    else{
+      this.totalPages=this.totalPages%10;
+      return this.totalPages;
+    }
+  }
 }
 
 
