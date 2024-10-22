@@ -5,11 +5,12 @@ import { GithubService } from '../../services/github.service';
 import { url } from 'node:inspector';
 import { NgFor, NgIf } from '@angular/common';
 import { PaginatePipe } from 'ngx-pagination';
+import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule,NgIf,NgFor],
+  imports: [ReactiveFormsModule,FormsModule,NgIf,NgFor,NgxSkeletonLoaderModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

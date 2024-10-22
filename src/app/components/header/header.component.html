@@ -13,7 +13,9 @@
     </div>
   </nav>
   <div class="container">
+    
     <div *ngIf="searchResults" class="container">
+      
     <div class="profile-card" >
       <img src="{{searchResults?.avatar_url}}" alt="Profile Image" width="300" height="300"  class="profile-img">
       <div class="side">
@@ -27,16 +29,23 @@
       <div class="detail-item" >
         <i class="fasfa-envelope" href="#"></i> {{searchResults?.url}}
       </div>
+      <a href="{{searchResults?.html_url}}">
       <div class="col-md-6" >
+        
         <div class="card"   *ngFor="let item of searchResult " style="width: 45%;">
+          
+        
           <div class="card-body">
             <h5 class="card-title">{{ item.name}}</h5>
             <p class="card-text">{{ item.description}}.</p>
-            <a href="#" class="btn btn-primary">{{ item.language}}</a>
+            
+
+            <a href="#" class="btn btn-primary">{{ item.language}}</a>            
           </div>
-        </div>
         
         </div>
+        
+        </div></a>
       <div class="perpage">
         <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
         <span>Page {{ currentPage }} of {{ totalPage() }}</span>
@@ -56,6 +65,11 @@
   }
   .search{
     display: flex;
+  }
+  .btn btn-primary{
+   padding: 20px;
+   margin-left: 20px;
+   margin-right: 20px;
   }
   .profile-card{
     display: flex;
@@ -112,38 +126,9 @@ margin-bottom: 4vw; /* Margin between cards */
   padding: 20;
   background-color:#faf0e6;
 }
-.cen{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Adjust height as needed */
-}
-.cooltext {
-  font-family: Arial, sans-serif;
-  font-size: 150px;
-  color:#000435; /* Adjust text color */
-  animation: coolAnimation 2s infinite alternate; /* Adjust animation duration */
-  position: absolute;
-  
-}
-@keyframes coolAnimation {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-  
-}
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-.container{
-  width: 100%;
-  background-color: #ece0d1;
-  
-}
+
 </Style>
-<div class="cen">
- <h1 class="cooltext">GIT GOOGLE</h1 >
-</div>
+
 
 
 
